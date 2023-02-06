@@ -39,7 +39,7 @@ module.exports = {
     },
 
     getNoteById: async (req, res) => {
-        const id = '63db4a053aa2919d61e3bfe2';
+        const { id } = req.params;
         try {
             const result = await Note.findById(id)
             res.json({
@@ -55,19 +55,20 @@ module.exports = {
     },
 
     editNote: async (req, res) => {
-        const id = '63db4a053aa2919d61e3bfe2';
-        try {
-            const result = await Note.findByIdAndUpdate(id, {  title: 'Shacosu editado', content: 'Este texto se ha pasado a espanol'});
-            res.json({
-                status: 200,
-                body: result
-            })
-        } catch (error) {
-            res.status(500).json({
-                status: 500,
-                error: error.message
-            })
-        }
+        console.log(req.body);
+        res.send(req.body)
+        // try {
+        //     const result = await Note.findByIdAndUpdate(id, {  title, content });
+        //     res.json({
+        //         status: 200,
+        //         body: result
+        //     })
+        // } catch (error) {
+        //     res.status(500).json({
+        //         status: 500,
+        //         error: error.message
+        //     })
+        // }
     },
 
     deleteNote: async (req, res) => {

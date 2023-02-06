@@ -9,13 +9,13 @@ router.route('/create/note')
 router.route('/get/notes')
     .get(getNotes)
 
-    router.route('/get/note/:id')
+router.route('/get/note/:id')
     .get(getNoteById)
 
 router.route('/edit/note')
-    .get(editNote)
+    .post(editNote)
 
 router.route('/delete/note')
-    .get(deleteNote)
+    .post(deleteNote)
 
 module.exports = router;
